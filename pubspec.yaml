@@ -24,14 +24,4 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-  - assets/images/hoodie.png
-  - assets/images/sneakers.png
-  - assets/images/profile.jpg
-  - assets/images/shirt.png
-  - assets/images/jeans.png
-  - assets/images/jacket.png
-  - assets/images/tshirt.png
-  - assets/images/onboarding1.png
-  - assets/images/onboarding2.png
-  - assets/images/onboarding3.png
-  
+    - assets/images/

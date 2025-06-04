@@ -23,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   final List<Product> _products = [
+    // Shirts
     Product(
       id: '1',
       name: 'Casual Shirt',
@@ -33,6 +34,26 @@ class _HomeScreenState extends State<HomeScreen> {
       category: 'Shirts',
     ),
     Product(
+      id: '14',
+      name: 'Formal Shirt',
+      description: 'Business formal shirt',
+      price: 34.99,
+      imageUrl: 'assets/images/shirt1.png',
+      stock: 17,
+      category: 'Shirts',
+    ),
+    Product(
+      id: '15',
+      name: 'Linen Shirt',
+      description: 'Breathable linen shirt',
+      price: 38.99,
+      imageUrl: 'assets/images/shirt2.png',
+      stock: 10,
+      category: 'Shirts',
+    ),
+
+    // Jeans
+    Product(
       id: '2',
       name: 'Denim Jeans',
       description: 'Stylish blue jeans',
@@ -41,6 +62,26 @@ class _HomeScreenState extends State<HomeScreen> {
       stock: 15,
       category: 'Jeans',
     ),
+    Product(
+      id: '12',
+      name: 'Black Jeans',
+      description: 'Slim fit black jeans',
+      price: 54.99,
+      imageUrl: 'assets/images/jeans1.png',
+      stock: 13,
+      category: 'Jeans',
+    ),
+    Product(
+      id: '13',
+      name: 'Ripped Jeans',
+      description: 'Distressed ripped jeans',
+      price: 59.99,
+      imageUrl: 'assets/images/jeans2.png',
+      stock: 10,
+      category: 'Jeans',
+    ),
+
+    // Jackets
     Product(
       id: '3',
       name: 'Leather Jacket',
@@ -51,6 +92,35 @@ class _HomeScreenState extends State<HomeScreen> {
       category: 'Jackets',
     ),
     Product(
+      id: '9',
+      name: 'Bomber Jacket',
+      description: 'Classic bomber jacket',
+      price: 89.99,
+      imageUrl: 'assets/images/jacket1.png',
+      stock: 8,
+      category: 'Jackets',
+    ),
+    Product(
+      id: '10',
+      name: 'Puffer Jacket',
+      description: 'Insulated puffer jacket',
+      price: 109.99,
+      imageUrl: 'assets/images/jacket2.png',
+      stock: 9,
+      category: 'Jackets',
+    ),
+    Product(
+      id: '11',
+      name: 'Rain Jacket',
+      description: 'Waterproof rain jacket',
+      price: 69.99,
+      imageUrl: 'assets/images/jacket3.png',
+      stock: 11,
+      category: 'Jackets',
+    ),
+
+    // T-Shirts
+    Product(
       id: '4',
       name: 'Graphic T-Shirt',
       description: 'Cool graphic tee',
@@ -58,6 +128,71 @@ class _HomeScreenState extends State<HomeScreen> {
       imageUrl: 'assets/images/tshirt.png',
       stock: 30,
       category: 'T-Shirts',
+    ),
+    Product(
+      id: '16',
+      name: 'Plain T-Shirt',
+      description: 'Basic plain tee',
+      price: 14.99,
+      imageUrl: 'assets/images/tshirt1.png',
+      stock: 25,
+      category: 'T-Shirts',
+    ),
+    Product(
+      id: '17',
+      name: 'Striped T-Shirt',
+      description: 'T-shirt with stripes',
+      price: 18.99,
+      imageUrl: 'assets/images/tshirt2.png',
+      stock: 20,
+      category: 'T-Shirts',
+    ),
+    Product(
+      id: '18',
+      name: 'V-Neck T-Shirt',
+      description: 'V-neck cotton t-shirt',
+      price: 16.99,
+      imageUrl: 'assets/images/tshirt3.png',
+      stock: 22,
+      category: 'T-Shirts',
+    ),
+
+    // Hoodies
+    Product(
+      id: '5',
+      name: 'Classic Hoodie',
+      description: 'Warm and cozy hoodie',
+      price: 39.99,
+      imageUrl: 'assets/images/hoodie.png',
+      stock: 18,
+      category: 'Hoodies',
+    ),
+    Product(
+      id: '6',
+      name: 'Zip Hoodie',
+      description: 'Zipper hoodie with pockets',
+      price: 42.99,
+      imageUrl: 'assets/images/hoodie2.png',
+      stock: 12,
+      category: 'Hoodies',
+    ),
+    Product(
+      id: '7',
+      name: 'Oversized Hoodie',
+      description: 'Trendy oversized hoodie',
+      price: 45.99,
+      imageUrl: 'assets/images/hoodie3.png',
+      stock: 14,
+      category: 'Hoodies',
+    ),
+    Product(
+      id: '8',
+      name: 'Slim Fit Hoodie',
+      description: 'Slim fit stylish hoodie',
+      price: 41.99,
+      imageUrl: 'assets/images/hoodie4.png',
+      stock: 16,
+      category: 'Hoodies',
     ),
   ];
 
@@ -83,7 +218,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CartScreen(userEmail: widget.userEmail),
+                      builder: (context) =>
+                          CartScreen(userEmail: widget.userEmail),
                     ),
                   );
                 },
@@ -97,7 +233,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     radius: 10,
                     child: Text(
                       '${cartProvider.itemCount}',
-                      style: const TextStyle(color: Color.fromARGB(255, 149, 28, 151), fontSize: 12),
+                      style: const TextStyle(
+                          color: Color.fromARGB(255, 149, 28, 151),
+                          fontSize: 12),
                     ),
                   ),
                 ),
@@ -115,7 +253,14 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           ),
           CategoryFilterWidget(
-            categories: ['All', 'Shirts', 'Jeans', 'Jackets', 'T-Shirts'],
+            categories: [
+              'All',
+              'Shirts',
+              'Jeans',
+              'Jackets',
+              'T-Shirts',
+              'Hoodies',
+            ],
             selectedCategory: _selectedCategory,
             onCategorySelected: (category) {
               setState(() {
@@ -141,7 +286,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ProductDetailScreen(product: product),
+                        builder: (context) =>
+                            ProductDetailScreen(product: product),
                       ),
                     );
                   },
@@ -158,7 +304,9 @@ class _HomeScreenState extends State<HomeScreen> {
     if (_selectedCategory == 'All') {
       return _products;
     }
-    return _products.where((product) => product.category == _selectedCategory).toList();
+    return _products
+        .where((product) => product.category == _selectedCategory)
+        .toList();
   }
 
   @override
@@ -168,7 +316,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ? _buildHomeContent()
           : ProfileScreen(
               email: widget.userEmail,
-              orderHistory: [], // Pass real order history if available
+              orderHistory: [],
             ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
