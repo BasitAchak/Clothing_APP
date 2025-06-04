@@ -28,8 +28,6 @@ Tools & Technologies Used
 | **Provider**       | Lightweight and scalable state management         |
 | **Material Design**| UI components like buttons, cards, and dialogs    |
 | **SharedPreferences** *(optional)* | For storing simple persistent user data    |
-| **Firebase** *(optional)*          | Can be integrated for authentication & DB |
-
 
 
 Folder Structure
