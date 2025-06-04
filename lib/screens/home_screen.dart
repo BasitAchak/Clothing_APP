@@ -264,7 +264,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SearchBarWidget(
             onSearch: (query) {
               setState(() {
-                _searchQuery = query;
+                _searchQuery = query.trim();
               });
             },
           ),
@@ -281,6 +281,8 @@ class _HomeScreenState extends State<HomeScreen> {
             onCategorySelected: (category) {
               setState(() {
                 _selectedCategory = category;
+                // Clear search when category changes, optional:
+                _searchQuery = '';
               });
             },
           ),
