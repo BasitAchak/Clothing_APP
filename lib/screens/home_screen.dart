@@ -21,6 +21,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   String _selectedCategory = 'All';
   int _selectedIndex = 0;
+  String _searchQuery = '';
 
   final List<Product> _products = [
     // Shirts
@@ -202,10 +203,25 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  List<Product> get _filteredProducts {
+    final lowerQuery = _searchQuery.toLowerCase();
+    final productsByCategory = _selectedCategory == 'All'
+        ? _products
+        : _products.where((p) => p.category == _selectedCategory).toList();
+
+    if (_searchQuery.isEmpty) return productsByCategory;
+
+    return productsByCategory.where((product) {
+      return product.name.toLowerCase().contains(lowerQuery) ||
+          product.description.toLowerCase().contains(lowerQuery);
+    }).toList();
+  }
+
   Widget _buildHomeContent() {
     final screenWidth = MediaQuery.of(context).size.width;
     final isLargeScreen = screenWidth > 600;
     final cartProvider = Provider.of<CartProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Clothing Store'),
@@ -247,9 +263,9 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           SearchBarWidget(
             onSearch: (query) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Searching for: $query')),
-              );
+              setState(() {
+                _searchQuery = query;
+              });
             },
           ),
           CategoryFilterWidget(
@@ -298,15 +314,6 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
     );
-  }
-
-  List<Product> get _filteredProducts {
-    if (_selectedCategory == 'All') {
-      return _products;
-    }
-    return _products
-        .where((product) => product.category == _selectedCategory)
-        .toList();
   }
 
   @override
