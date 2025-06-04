@@ -58,7 +58,7 @@ lib/
 
 
 # mockup link
-#  https://drive.google.com/file/d/1F9A-jVu8uvSRWgzIz97re3K3C81ijYLR/view?usp=drivesdk
+ [moukuplink] (https://drive.google.com/file/d/1F9A-jVu8uvSRWgzIz97re3K3C81ijYLR/view?usp=drivesdk)
 
-# video link
-# https://drive.google.com/file/d/1F2QjZbfWX2r28Jop2-oZXqHgdCrFCErW/view?usp=drivesdk
+video link
+ https://drive.google.com/file/d/1F2QjZbfWX2r28Jop2-oZXqHgdCrFCErW/view?usp=drivesdk
